@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block title %} | Results {% endblock %}
+
+{% block content %}
+
+
+<!--Route-->
+<section id="route" class="py-4">
+    <div class="container">
+        {% if routes %}
+        {% for route in routes %}
+        <a href="{% url 'search' %}" class="btn btn-light mb-4">
+            Route: {{ route.route_from }} ---> {{ route.route_to }}
+        </a>
+        <div class="row">
+            <div class="col-md-9">
+                <!-- Fields -->
+                <div class="row mb-5 fields">
+                    <div class="col-md-6">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item text-secondary">
+                                <i class="fas fa-road"></i>
+                                <span class="float-right">{{ route.route_from }}
+                                </span>
+                            </li>
+                            <li class="list-group-item text-secondary">
+                                <i class="fas fa-road"></i>
+                                <span class="float-right">{{ route.route_to }}
+                                </span>
+                            </li>
+                            <li class="list-group-item text-secondary">
+                                <i class="fas fa-money-bill-alt"></i>
+                                Morning Fare:
+                                <span class="float-right">
+                                    KSH. {{ route.morning_fare | intcomma }}
+                                </span>
+                            </li>
+                            <li class="list-group-item text-secondary">
+                                <i class="fas fa-money-bill-alt"></i>
+                                Daytime Fare:
+                                <span class="float-right">
+                                    KSH. {{ route.daytime_fare | intcomma }}
+                                </span>
+                            </li>
+                            <li class="list-group-item text-secondary">
+                                <i class="fas fa-money-bill-alt"></i>
+                                Evening Fare:
+                                <span class="float-right">
+                                    KSH. {{ route.evening_fare | intcomma }}
+                                </span>
+                            </li>
+                            <li class="list-group-item text-secondary">
+                                <i class="fas fa-bus"></i> Sacco:
+                                <span class="float-right">
+                                    {{ route.sacco_name }}
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="col-md-12">
+            <p>Thank you for using MatatuFare. The Route is not available but it
+                will be added soon.</p>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+{%endblock content%}

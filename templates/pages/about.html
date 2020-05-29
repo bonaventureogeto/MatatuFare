@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} | About Us {% endblock %}
+
+{% block content %}
+
+<section id="showcase-inner" class="py-5 text-white">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-12">
+                <h1 class="display-4">About Matatu Fare</h1>
+                <p class="lead">Lorem ipsum dolor sit, amet consectetur
+                    adipisicing
+                    elit. Sunt, pariatur!</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="about" class="py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>We Search For The Most Affordable Route For You</h2>
+                <p class="lead">Lorem ipsum dolor sit, amet consectetur
+                    adipisicing
+                    elit. Sunt, pariatur!</p>
+                <img src="static/img/route.jpg" alt="">
+                <p class="mt-4">Lorem ipsum dolor sit amet consectetur
+                    adipisicing
+                    elit. Perspiciatis esse officia repudiandae ad saepe
+                    ex, amet
+                    neque quod accusamus rem quia magnam magni dolorum
+                    facilis ullam
+                    minima perferendis? Exercitationem at quaerat
+                    commodi id libero eveniet harum perferendis laborum
+                    molestias
+                    quia.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Work -->
+<section id="work" class="bg-dark text-white text-center">
+    <h2 class="display-4">We Work For You</h2>
+    <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
+        velit
+        aperiam, unde aliquid at similique!</h4>
+    <hr>
+    <a href="{% url 'index' %}" class="btn btn-secondary text-white btn-lg">View
+        Our Featured Saccos</a>
+</section>
+
+<!-- Team -->
+<section id="team" class="py-5">
+    <div class="container">
+        <h2 class="text-center">Our Partners</h2>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <img src="digitalmatatus.jpg" alt=""
+                    class="rounded-circle
+                    mb-3">
+                <h4>Digital Matatus</h4>
+                <hr>
+                <p>
+                    <i class="fas fa-phone"></i> (555)-555-5555</p>
+                <p>
+                    <i class="fas fa-envelope-open"></i>
+                    digitalmatatus@matatufare.co</p>
+            </div>
+
+            <div class="col-md-4">
+                <img src="gok.jpg" alt="" class="rounded-circle
+                    mb-3">
+                <h4>The Government of Kenya</h4>
+                <hr>
+                <p>
+                    <i class="fas fa-phone"></i> (444)-444-4444</p>
+                <p>
+                    <i class="fas fa-envelope-open"></i>
+                    gok@matatufare.gov</p>
+            </div>
+
+            <div class="col-md-4">
+                <img src="codeB.jpg" alt=""
+                    class="rounded-circle mb-3">
+                <h4>Bonaventure Ogeto</h4>
+                <hr>
+                <p>
+                    <i class="fas fa-phone"></i> (333)-333-3333</p>
+                <p>
+                    <i class="fas fa-envelope-open"></i>
+                    bonaventure@matatufare.co</p>
+            </div>
+        </div>
+    </div>
+</section>
+{%endblock content%}

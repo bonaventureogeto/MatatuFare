@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block title %} | {{ route.route_to }} {% endblock %}
+
+{% block content %}
+<section id="showcase-inner" class="py-5 text-white">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-12">
+                <h1 class="display-4">{{ route.route_to }}</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--Route-->
+<section id="route" class="py-4">
+    <div class="container">
+        <a href="{% url 'routes' %}" class="btn btn-light mb-4">
+            Routes
+        </a>
+        <div class="row">
+            <div class="col-md-9">
+                <!-- Fields -->
+                <div class="row mb-5 fields">
+                    <div class="col-md-6">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item text-secondary">
+                                <i class="fas fa-money-bill-alt"></i>
+                                Morning Fare:
+                                <span class="float-right">
+                                    ${{ route.morning_fare | intcomma }}
+                                </span>
+                            </li>
+                            <li class="list-group-item text-secondary">
+                                <i class="fas fa-money-bill-alt"></i>
+                                Daytime Fare:
+                                <span class="float-right">
+                                    ${{ route.daytime_fare | intcomma }}
+                                </span>
+                            </li>
+                            <li class="list-group-item text-secondary">
+                                <i class="fas fa-money-bill-alt"></i>
+                                Evening Fare:
+                                <span class="float-right">
+                                    ${{ route.evening_fare | intcomma }}
+                                </span>
+                            </li>
+                            <li class="list-group-item text-secondary">
+                                <i class="fas fa-bed"></i>
+                                <span class="float-right">{{ route.route_from }}
+                                </span>
+                            </li>
+                            <li class="list-group-item text-secondary">
+                                <i class="fas fa-bed"></i>
+                                <span class="float-right">{{ route.route_to }}
+                                </span>
+                            </li>
+                            <li class="list-group-item text-secondary">
+                                <i class="fas fa-bath"></i> Sacco:
+                                <span class="float-right">
+                                    {{ route.sacco_name }}
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
