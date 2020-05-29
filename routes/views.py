@@ -1,5 +1,20 @@
 from django.shortcuts import get_object_or_404, render
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from .models import Route
+
+
+# def index(request):
+#     routes = Route.objects.all()
+
+#     paginator = Paginator(routes, 2)
+#     page = request.GET.get('page')
+#     paged_routes = paginator.get_page(page)
+
+#     context = {
+#         'routes': paged_routes
+#     }
+
+#     return render(request, 'routes/route.html', context)
 
 
 def route(request, route_id):
@@ -27,25 +42,6 @@ def search(request):
         route_to = request.GET['route_to']
         if route_to:
             queryset_list = queryset_list.filter(route_to__iexact=route_to)
-
-    # Price
-    if 'morning_fare' in request.GET:
-        morning_fare = request.GET['morning_fare']
-        if morning_fare:
-            queryset_list = queryset_list.filter(
-                morning_fare__lte=morning_fare)
-
-    if 'daytime_fare' in request.GET:
-        daytime_fare = request.GET['daytime_fare']
-        if daytime_fare:
-            queryset_list = queryset_list.filter(
-                daytime_fare__lte=daytime_fare)
-
-    if 'evening_fare' in request.GET:
-        evening_fare = request.GET['evening_fare']
-        if evening_fare:
-            queryset_list = queryset_list.filter(
-                evening_fare__lte=evening_fare)
 
     context = {
         'routes': queryset_list,
