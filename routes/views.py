@@ -6,10 +6,6 @@ from .models import Route
 def index(request):
     routes = Route.objects.all()
 
-    # paginator = Paginator(routes, 2)
-    # page = request.GET.get('page')
-    # paged_routes = paginator.get_page(page)
-
     context = {
         'routes': routes
     }
@@ -35,7 +31,7 @@ def search(request):
         route_from = request.GET['route_from']
         if route_from:
             queryset_list = queryset_list.filter(
-                description__icontains=route_from)
+                route_from__iexact=route_from)
 
         # route_to
     if 'route_to' in request.GET:
