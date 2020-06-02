@@ -13,4 +13,4 @@ def contact(request):
 
     contact.save()
 
-    return redirect('/routes/')
+    return redirect('/routes')
