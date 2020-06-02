@@ -3,18 +3,18 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from .models import Route
 
 
-# def index(request):
-#     routes = Route.objects.all()
+def index(request):
+    routes = Route.objects.all()
 
-#     paginator = Paginator(routes, 2)
-#     page = request.GET.get('page')
-#     paged_routes = paginator.get_page(page)
+    # paginator = Paginator(routes, 2)
+    # page = request.GET.get('page')
+    # paged_routes = paginator.get_page(page)
 
-#     context = {
-#         'routes': paged_routes
-#     }
+    context = {
+        'routes': routes
+    }
 
-#     return render(request, 'routes/route.html', context)
+    return render(request, 'routes/route.html', context)
 
 
 def route(request, route_id):
