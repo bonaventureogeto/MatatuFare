@@ -1,16 +1,22 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from .models import Contact
 
 
 def contact(request):
     if request.method == 'POST':
-        route_from = request.POST['listing_id']
-        route_to = request.POST['listing']
+        name = request.POST['name']
+        email = request.POST['email']
+        phone = request.POST['phone']
+        message = request.POST['message']
         user_id = request.POST['user_id']
 
-    contact = Contact(route_from=route_from,
-                      route_to=route_to, user_id=user_id)
+        contact = Contact(name=name, email=email, phone=phone,
+                          message=message, user_id=user_id)
 
-    contact.save()
+        contact.save()
 
-    return redirect('/routes')
+        messages.success(
+            request, "Your message has been submitted. We'll get back to you soon.")
+
+    return render(request, 'pages/contact.html')
