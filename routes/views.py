@@ -31,13 +31,13 @@ def search(request):
         route_from = request.GET['route_from']
         if route_from:
             queryset_list = queryset_list.filter(
-                route_from__iexact=route_from)
+                route_from__icontains=route_from)
 
         # route_to
     if 'route_to' in request.GET:
         route_to = request.GET['route_to']
         if route_to:
-            queryset_list = queryset_list.filter(route_to__iexact=route_to)
+            queryset_list = queryset_list.filter(route_to__icontains=route_to)
 
     context = {
         'routes': queryset_list,
