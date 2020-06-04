@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 from django.contrib.messages import constants as messages
 import os
-import django_heroku
+# import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -83,13 +83,13 @@ WSGI_APPLICATION = 'mat.wsgi.application'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'matatufare',
-        'USER': 'bonny',
-        'PASSWORD': 'Ogetoh043',
-        'HOST': 'localhost',
+        'NAME': os.environ.get("DB_NAME"),
+        'USER': os.environ.get("DB_USER"),
+        'PASSWORD': os.environ.get("DB_PASSWORD"),
+        'HOST': os.environ.get("DB_HOST"),
+        'PORT': 5432
     }
 }
 
@@ -142,4 +142,4 @@ MESSAGE_TAGS = {
     messages.ERROR: 'danger'
 }
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
