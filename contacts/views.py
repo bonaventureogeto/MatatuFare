@@ -11,7 +11,7 @@ def contact(request):
         route_from = request.POST['route_from']
         route_to = request.POST['route_to']
         fare = request.POST['fare']
-        sacco_name = request.POST['sacco']
+        sacco_name = request.POST['sacco_name']
         message = request.POST['message']
         user_id = request.POST['user_id']
 
