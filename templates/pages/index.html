@@ -1,10 +1,6 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block title %} | Welcome {% endblock %} {% load static %}
 
-{% block title %} | Welcome {% endblock %}
-
-{% load static %}
-
-
+<!-- # -->
 {% block content %}
 
 <!--Alerts-->
@@ -14,11 +10,9 @@
 <section id="showcase">
     <div class="container text-center">
         <div class="home-search p-20">
-            <img src="static/img/map.jpg" alt="">
+            <img src="static/img/map.jpg" alt="" />
             <div class="overlay p-5">
-                <h1 class="display-2 mb-4">
-                    MatatuFare
-                </h1>
+                <h1 class="display-2 mb-4">MatatuFare</h1>
                 <p class="lead">Want to search for route and fare?</p>
                 <div class="search">
                     <form action="{% url 'search' %}">
@@ -26,27 +20,20 @@
                         <div class="form-row">
                             <div class="col-md-4 mb-3">
                                 <label class="sr-only">From</label>
-                                <input type="text" name="route_from"
-                                    class="form-control"
-                                    placeholder="From">
+                                <input type="text" name="route_from" class="form-control" placeholder="From" />
                             </div>
 
                             <div class="col-md-4 mb-3">
                                 <label class="sr-only">To</label>
-                                <input type="text" name="route_to"
-                                    class="form-control"
-                                    placeholder="To">
+                                <input type="text" name="route_to" class="form-control" placeholder="To" />
                             </div>
-
                         </div>
-                        <button class="btn btn-secondary btn-block mt-4"
-                            type="submit">Search</button>
+                        <button class="btn btn-secondary mt-4" type="submit">Search</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
 
 {%endblock content%}
